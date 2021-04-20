@@ -1,0 +1,272 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+<head>
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>Topic 4 Python and Jupyter Notebooks | Expressing Analyses Well with Literate Computing</title>
+  <meta name="description" content="How to write an analysis for reading by others." />
+  <meta name="generator" content="bookdown 0.21 and GitBook 2.6.7" />
+
+  <meta property="og:title" content="Topic 4 Python and Jupyter Notebooks | Expressing Analyses Well with Literate Computing" />
+  <meta property="og:type" content="book" />
+  
+  
+  <meta property="og:description" content="How to write an analysis for reading by others." />
+  <meta name="github-repo" content="rstudio/bookdown-demo" />
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="Topic 4 Python and Jupyter Notebooks | Expressing Analyses Well with Literate Computing" />
+  
+  <meta name="twitter:description" content="How to write an analysis for reading by others." />
+  
+
+<meta name="author" content="Dan MacLean" />
+
+
+<meta name="date" content="2021-04-20" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+  
+  
+<link rel="prev" href="r-and-rmarkdown.html"/>
+<link rel="next" href="references.html"/>
+<script src="libs/jquery-2.2.3/jquery.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-clipboard.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+
+<script src="libs/accessible-code-block-0.0.1/empty-anchor.js"></script>
+
+
+
+<link rel="stylesheet" href="style.css" type="text/css" />
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li><a href="./">Literate Computing</a></li>
+
+<li class="divider"></li>
+<li class="chapter" data-level="1" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i><b>1</b> Setting up</a><ul>
+<li class="chapter" data-level="1.1" data-path="index.html"><a href="index.html#prerequisites"><i class="fa fa-check"></i><b>1.1</b> Prerequisites</a><ul>
+<li class="chapter" data-level="1.1.1" data-path="index.html"><a href="index.html#knowledge-prerequisites"><i class="fa fa-check"></i><b>1.1.1</b> Knowledge prerequisites</a></li>
+<li class="chapter" data-level="1.1.2" data-path="index.html"><a href="index.html#software-prerequisites"><i class="fa fa-check"></i><b>1.1.2</b> Software prerequisites</a></li>
+</ul></li>
+<li class="chapter" data-level="1.2" data-path="index.html"><a href="index.html#installing-r"><i class="fa fa-check"></i><b>1.2</b> Installing R</a></li>
+<li class="chapter" data-level="1.3" data-path="index.html"><a href="index.html#installing-rstudio"><i class="fa fa-check"></i><b>1.3</b> Installing RStudio</a></li>
+<li class="chapter" data-level="1.4" data-path="index.html"><a href="index.html#installing-r-packages-in-rstudio"><i class="fa fa-check"></i><b>1.4</b> Installing R packages in RStudio</a><ul>
+<li class="chapter" data-level="1.4.1" data-path="index.html"><a href="index.html#standard-packages"><i class="fa fa-check"></i><b>1.4.1</b> Standard packages</a></li>
+</ul></li>
+<li class="chapter" data-level="1.5" data-path="index.html"><a href="index.html#installing-python-3-with-anaconda"><i class="fa fa-check"></i><b>1.5</b> Installing Python 3 with Anaconda</a><ul>
+<li class="chapter" data-level="1.5.1" data-path="index.html"><a href="index.html#note-for-macos-users"><i class="fa fa-check"></i><b>1.5.1</b> Note for macOS users</a></li>
+<li class="chapter" data-level="1.5.2" data-path="index.html"><a href="index.html#note-for-windows-users"><i class="fa fa-check"></i><b>1.5.2</b> Note for Windows users</a></li>
+<li class="chapter" data-level="1.5.3" data-path="index.html"><a href="index.html#note-for-linux-users"><i class="fa fa-check"></i><b>1.5.3</b> Note for Linux Users</a></li>
+</ul></li>
+<li class="chapter" data-level="1.6" data-path="index.html"><a href="index.html#starting-a-jupyter-notebook"><i class="fa fa-check"></i><b>1.6</b> Starting a Jupyter Notebook</a><ul>
+<li class="chapter" data-level="1.6.1" data-path="index.html"><a href="index.html#macos"><i class="fa fa-check"></i><b>1.6.1</b> macOS</a></li>
+<li class="chapter" data-level="1.6.2" data-path="index.html"><a href="index.html#windows"><i class="fa fa-check"></i><b>1.6.2</b> Windows</a></li>
+<li class="chapter" data-level="1.6.3" data-path="index.html"><a href="index.html#linux"><i class="fa fa-check"></i><b>1.6.3</b> Linux</a></li>
+</ul></li>
+<li class="chapter" data-level="1.7" data-path="index.html"><a href="index.html#installing-python-packages-with-conda"><i class="fa fa-check"></i><b>1.7</b> Installing Python Packages with <code>conda</code></a></li>
+</ul></li>
+<li class="chapter" data-level="2" data-path="motivation.html"><a href="motivation.html"><i class="fa fa-check"></i><b>2</b> Motivation</a><ul>
+<li class="chapter" data-level="2.1" data-path="motivation.html"><a href="motivation.html#if-we-didnt-have-to-do-it-over-and-over-it-wouldnt-be-called-re-search."><i class="fa fa-check"></i><b>2.1</b> If we didn’t have to do it over and over, it wouldn’t be called <em>re</em>-search.</a></li>
+</ul></li>
+<li class="chapter" data-level="3" data-path="r-and-rmarkdown.html"><a href="r-and-rmarkdown.html"><i class="fa fa-check"></i><b>3</b> R and RMarkdown</a><ul>
+<li class="chapter" data-level="3.1" data-path="r-and-rmarkdown.html"><a href="r-and-rmarkdown.html#about-this-chapter"><i class="fa fa-check"></i><b>3.1</b> About this chapter</a></li>
+<li class="chapter" data-level="3.2" data-path="r-and-rmarkdown.html"><a href="r-and-rmarkdown.html#markdown"><i class="fa fa-check"></i><b>3.2</b> Markdown</a><ul>
+<li class="chapter" data-level="3.2.1" data-path="r-and-rmarkdown.html"><a href="r-and-rmarkdown.html#basic-markdown-tags"><i class="fa fa-check"></i><b>3.2.1</b> Basic markdown tags</a></li>
+</ul></li>
+<li class="chapter" data-level="3.3" data-path="r-and-rmarkdown.html"><a href="r-and-rmarkdown.html#r-markdown"><i class="fa fa-check"></i><b>3.3</b> R Markdown</a><ul>
+<li class="chapter" data-level="3.3.1" data-path="r-and-rmarkdown.html"><a href="r-and-rmarkdown.html#using-r-markdown-in-rstudio"><i class="fa fa-check"></i><b>3.3.1</b> Using R Markdown in RStudio</a></li>
+<li class="chapter" data-level="3.3.2" data-path="r-and-rmarkdown.html"><a href="r-and-rmarkdown.html#conclusion"><i class="fa fa-check"></i><b>3.3.2</b> Conclusion</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="4" data-path="python-and-jupyter-notebooks.html"><a href="python-and-jupyter-notebooks.html"><i class="fa fa-check"></i><b>4</b> Python and Jupyter Notebooks</a><ul>
+<li class="chapter" data-level="4.1" data-path="python-and-jupyter-notebooks.html"><a href="python-and-jupyter-notebooks.html#about-this-chapter-1"><i class="fa fa-check"></i><b>4.1</b> About this chapter</a></li>
+<li class="chapter" data-level="4.2" data-path="python-and-jupyter-notebooks.html"><a href="python-and-jupyter-notebooks.html#jupyter-notebooks"><i class="fa fa-check"></i><b>4.2</b> Jupyter Notebooks</a></li>
+<li class="chapter" data-level="4.3" data-path="python-and-jupyter-notebooks.html"><a href="python-and-jupyter-notebooks.html#trying-out-jupyter-on-the-web"><i class="fa fa-check"></i><b>4.3</b> Trying Out Jupyter on The Web</a></li>
+<li class="chapter" data-level="4.4" data-path="python-and-jupyter-notebooks.html"><a href="python-and-jupyter-notebooks.html#starting-jupyter"><i class="fa fa-check"></i><b>4.4</b> Starting Jupyter</a><ul>
+<li class="chapter" data-level="4.4.1" data-path="python-and-jupyter-notebooks.html"><a href="python-and-jupyter-notebooks.html#macos-and-linux"><i class="fa fa-check"></i><b>4.4.1</b> macOS and Linux</a></li>
+<li class="chapter" data-level="4.4.2" data-path="python-and-jupyter-notebooks.html"><a href="python-and-jupyter-notebooks.html#windows-1"><i class="fa fa-check"></i><b>4.4.2</b> Windows</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="5" data-path="references.html"><a href="references.html"><i class="fa fa-check"></i><b>5</b> References</a></li>
+<li class="divider"></li>
+<li><a href="https://github.com/rstudio/bookdown" target="blank">Published with bookdown</a></li>
+
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">Expressing Analyses Well with Literate Computing</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="python-and-jupyter-notebooks" class="section level1">
+<h1><span class="header-section-number">Topic 4</span> Python and Jupyter Notebooks</h1>
+<div id="about-this-chapter-1" class="section level2">
+<h2><span class="header-section-number">4.1</span> About this chapter</h2>
+<ol style="list-style-type: decimal">
+<li>Questions
+<ul>
+<li>How do I write a reproducible analysis document in Python with Jupyter??</li>
+</ul></li>
+<li>Objectives
+<ul>
+<li>Mix markdown and Python with Rmarkdown</li>
+<li>Run an interactive analysis document</li>
+</ul></li>
+<li>Keypoints
+<ul>
+<li>Jupyter notebooks are excellent tools for creating readable, attractive and dynamic reproducible literate programming documents.</li>
+</ul></li>
+</ol>
+</div>
+<div id="jupyter-notebooks" class="section level2">
+<h2><span class="header-section-number">4.2</span> Jupyter Notebooks</h2>
+<p>A Jupyter Notebook is really quite similar to an RMarkdown document in that it mixes code and markdown in different blocks and allows the user to create a reproducible document. Jupyter varies from RMarkdown slightly in that it prioritises interactive work, instead of rendering a whole document, each block is run individually. Making the whold process a bit more step-by-step than in R Markdown.</p>
+</div>
+<div id="trying-out-jupyter-on-the-web" class="section level2">
+<h2><span class="header-section-number">4.3</span> Trying Out Jupyter on The Web</h2>
+<p>Because Jupyter notebooks are a bit fiddly to get started, there is an online test notebook set up by the Jupyter authors - <a href="https://jupyter.org/try">Classic Jupyter Notebook</a>. It can be a bit busy so may take a few reloads to get started.</p>
+
+<div class="task">
+<pre><code>* Go to the link above and start a classic Jupyter notebook. 
+* Work through the `Notebook Basics` section.
+* Start a new workbook and play around mixing Python Code and Markdown.
+* Save as an html file when you are done</code></pre>
+</div>
+
+</div>
+<div id="starting-jupyter" class="section level2">
+<h2><span class="header-section-number">4.4</span> Starting Jupyter</h2>
+<div id="macos-and-linux" class="section level3">
+<h3><span class="header-section-number">4.4.1</span> macOS and Linux</h3>
+<p>To get Jupyter running on your machine, you need to have Python 3, and the <code>jupyter</code> and <code>ipython</code> packages installed. That is all listed in the set up of this course.</p>
+<p>Once those are installed you can start a new notebook server by typing <code>jupyter notebook</code> at the terminal. Depending on the particulars of your local set up you may need to select an appropriate conda environment beforehand. A new server should start showing the filesystem in your web browser, use the buttons in the web page to start a new notebook.</p>
+</div>
+<div id="windows-1" class="section level3">
+<h3><span class="header-section-number">4.4.2</span> Windows</h3>
+<p>There should be a Start Menu item that will let you kick off a new Jupyter notebook server. Simply click on that.</p>
+
+<div class="task">
+<pre><code>* Start a new workbook and play around mixing Python Code and Markdown.
+* Pay attention to the block type options dropdown in the interface (under the `Widgets` menu), here is where you can tell the document whether you are writing some Markdown or entering Python. Use the `Run` button to run the code/render the Markdown.  
+* Save as an html file when you are done</code></pre>
+</div>
+
+
+<div class="roundup">
+<pre><code>* Jupyter Notebooks are excellent tools for creating readable, attractive and dynamic reproducible literate programming documents.</code></pre>
+</div>
+
+
+</div>
+</div>
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="r-and-rmarkdown.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="references.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/lunr.js"></script>
+<script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-clipboard.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": {
+"github": false,
+"facebook": true,
+"twitter": true,
+"linkedin": false,
+"weibo": false,
+"instapaper": false,
+"vk": false,
+"all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"]
+},
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": {
+"link": "https://github.com/rstudio/bookdown-demo/edit/master/03-jupyter-notebooks.Rmd",
+"text": "Edit"
+},
+"history": {
+"link": null,
+"text": null
+},
+"view": {
+"link": null,
+"text": null
+},
+"download": ["literate_computing.pdf", "literate_computing.epub"],
+"toc": {
+"collapse": "subsection"
+}
+});
+});
+</script>
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    var src = "true";
+    if (src === "" || src === "true") src = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML";
+    if (location.protocol !== "file:")
+      if (/^https?:/.test(src))
+        src = src.replace(/^https?:/, '');
+    script.src = src;
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+</body>
+
+</html>

@@ -1,0 +1,122 @@
+--- 
+title: "Expressing Analyses Well with Literate Computing"
+author: "Dan MacLean"
+date: "`r Sys.Date()`"
+site: bookdown::bookdown_site
+output: bookdown::gitbook
+documentclass: book
+bibliography: [book.bib, packages.bib]
+biblio-style: apalike
+link-citations: yes
+github-repo: rstudio/bookdown-demo
+description: "How to write an analysis for reading by others."
+---
+
+# Setting up
+
+The primary purpose of this course is to help you to record your analysis and results in a way that can be read and reproduced easily by you and by others. The course will show you two closely related notebooking tools in R and Python that are extremely useful for creating and organising an analysis and for re-doing it when any new data come available or changes are required. 
+
+We'll be working in R and Python for this short course.
+
+## Prerequisites
+
+### Knowledge prerequisites
+
+The materials in this book assume that you already know something (but not necessarily a great deal) of the languages R and Python, so there won't be any introduction to the languages themselves. The rest of this chapter will help you set up the software you need to practice with those tools.  
+
+
+### Software prerequisites
+
+You need to install the following stuff for this book: 
+
+ 1. R
+ 2. RStudio
+ 3. Some R packages: `rmarkdown`, `knitr`
+ 1. Python 3 via Anaconda
+ 2. A reasonably recent web-browser
+
+
+
+## Installing R
+
+Follow this link and install the right version for your operating system [https://www.stats.bris.ac.uk/R/](https://www.stats.bris.ac.uk/R/)
+
+## Installing RStudio
+
+Follow this link and install the right version for your operating system [https://www.rstudio.com/products/rstudio/download/](https://www.rstudio.com/products/rstudio/download/)
+
+## Installing R packages in RStudio
+
+### Standard packages
+
+In the RStudio console, type
+
+`install.packages(c("rmarkdown", "knitr"))`
+
+## Installing Python 3 with Anaconda
+
+Follow this link and install Python _3.x_ for your operating system. [https://www.anaconda.com/distribution/](https://www.anaconda.com/distribution/)
+
+### Note for macOS users
+
+Accept all of the defaults during installation
+
+Here is a video tutorial [https://www.youtube.com/watch?v=TcSAln46u9U](https://www.youtube.com/watch?v=TcSAln46u9U)
+
+### Note for Windows users
+
+Install Python 3 using all of the defaults for installation except make sure to check **Add Anaconda to my PATH environment variable**.
+
+Here is a video tutorial [https://www.youtube.com/watch?v=xxQ0mzZ8UvA](https://www.youtube.com/watch?v=xxQ0mzZ8UvA)
+
+### Note for Linux Users
+
+You'll need to be able to use the command-line to install with Anaconda. If you aren't comfortable with this, ask for assistance from the local support team.
+
+  1. Open [https://www.anaconda.com/download/#linux]() with your web browser.
+  2. Download the Python 3 installer for Linux.
+  3. Open a terminal window.
+  4.Type `bash Anaconda3-`and then press Tab. The name of the file you just downloaded should appear. If it does not, navigate to the folder where you downloaded the file, for example with: `cd Downloads`. Then, try again.
+  5. Press `enter`. You will follow the text-only prompts. To move through the text, press the `spacebar`. 
+  6. Type `yes` and press `enter` to approve the license. 
+  7. Press `enter` to approve the default location for the files. 
+  8. Type `yes` and press `enter` to prepend Anaconda to your `PATH` (this makes the Anaconda distribution the default Python).
+  9. Close the terminal window.
+
+## Starting a Jupyter Notebook
+
+### macOS
+  
+  1. Start the `Terminal` application in `Applications -> Utilities`
+  2. Type `jupyter notebook`, it should start in your web browser
+  
+### Windows
+
+  1. From the Start menu, search for and open `Anaconda 3` or `Jupyter Notebook`. You should be able to start a notebook directly by clicking the `Jupyter Notebook` icon.
+  
+### Linux
+
+  1. Open the terminal application. It is _usually_ in the task bar or dock 
+  2. Type `jupyter notebook`, it should start in your web browser
+  
+## Installing Python Packages with `conda`
+
+You can use `conda` to install new Python packages using the Terminal by typing `conda install <package_name>`.
+
+You can install the required packages with the following commands:
+
+```
+conda install jupyter
+```
+
+Accept all defaults when the system asks a question.
+
+
+
+
+```{r include=FALSE}
+# automatically create a bib database for R packages
+knitr::write_bib(c(
+  .packages(), 'bookdown', 'knitr', 'rmarkdown', 'tidyverse'
+), 'packages.bib')
+```
