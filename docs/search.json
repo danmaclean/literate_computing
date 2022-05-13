@@ -1,54 +1,5 @@
 [
   {
-    "objectID": "appendix.html",
-    "href": "appendix.html",
-    "title": "Prerequisites",
-    "section": "",
-    "text": "The materials in this book assume that you already know something (but not necessarily a great deal) of the languages R and Python, so there won’t be any introduction to the languages themselves. The rest of this chapter will help you set up the software you need to practice with those tools."
-  },
-  {
-    "objectID": "appendix.html#installing-r",
-    "href": "appendix.html#installing-r",
-    "title": "Prerequisites",
-    "section": "Installing R",
-    "text": "Installing R\nFollow this link and install the right version for your operating system https://www.stats.bris.ac.uk/R/"
-  },
-  {
-    "objectID": "appendix.html#installing-rstudio",
-    "href": "appendix.html#installing-rstudio",
-    "title": "Prerequisites",
-    "section": "Installing RStudio",
-    "text": "Installing RStudio\nFollow this link and install the right version for your operating system https://www.rstudio.com/products/rstudio/download/"
-  },
-  {
-    "objectID": "appendix.html#installing-r-packages-in-rstudio",
-    "href": "appendix.html#installing-r-packages-in-rstudio",
-    "title": "Prerequisites",
-    "section": "Installing R packages in RStudio",
-    "text": "Installing R packages in RStudio\n\nStandard packages\nIn the RStudio console, type\ninstall.packages(c(\"rmarkdown\", \"knitr\"))"
-  },
-  {
-    "objectID": "appendix.html#installing-python-3-with-anaconda",
-    "href": "appendix.html#installing-python-3-with-anaconda",
-    "title": "Prerequisites",
-    "section": "Installing Python 3 with Anaconda",
-    "text": "Installing Python 3 with Anaconda\nFollow this link and install Python 3.x for your operating system. https://www.anaconda.com/distribution/\n\nNote for macOS users\nAccept all of the defaults during installation\nHere is a video tutorial https://www.youtube.com/watch?v=TcSAln46u9U\n\n\nNote for Windows users\nInstall Python 3 using all of the defaults for installation except make sure to check Add Anaconda to my PATH environment variable.\nHere is a video tutorial https://www.youtube.com/watch?v=xxQ0mzZ8UvA\n\n\nNote for Linux Users\nYou’ll need to be able to use the command-line to install with Anaconda. If you aren’t comfortable with this, ask for assistance from the local support team.\n\nOpen https://www.anaconda.com/download/#linux with your web browser.\nDownload the Python 3 installer for Linux.\nOpen a terminal window. 4.Type bash Anaconda3-and then press Tab. The name of the file you just downloaded should appear. If it does not, navigate to the folder where you downloaded the file, for example with: cd Downloads. Then, try again.\nPress enter. You will follow the text-only prompts. To move through the text, press the spacebar.\nType yes and press enter to approve the license.\nPress enter to approve the default location for the files.\nType yes and press enter to prepend Anaconda to your PATH (this makes the Anaconda distribution the default Python).\nClose the terminal window."
-  },
-  {
-    "objectID": "appendix.html#starting-a-jupyter-notebook",
-    "href": "appendix.html#starting-a-jupyter-notebook",
-    "title": "Prerequisites",
-    "section": "Starting a Jupyter Notebook",
-    "text": "Starting a Jupyter Notebook\n\nmacOS\n\nStart the Terminal application in Applications -> Utilities\nType jupyter notebook, it should start in your web browser\n\n\n\nWindows\n\nFrom the Start menu, search for and open Anaconda 3 or Jupyter Notebook. You should be able to start a notebook directly by clicking the Jupyter Notebook icon.\n\n\n\nLinux\n\nOpen the terminal application. It is usually in the task bar or dock\nType jupyter notebook, it should start in your web browser"
-  },
-  {
-    "objectID": "appendix.html#installing-python-packages-with-conda",
-    "href": "appendix.html#installing-python-packages-with-conda",
-    "title": "Prerequisites",
-    "section": "Installing Python Packages with conda",
-    "text": "Installing Python Packages with conda\nYou can use conda to install new Python packages using the Terminal by typing conda install <package_name>.\nYou can install the required packages with the following commands:\nconda install jupyter\nAccept all defaults when the system asks a question."
-  },
-  {
     "objectID": "index.html",
     "href": "index.html",
     "title": "Literate Computing",
@@ -98,17 +49,59 @@
     "text": "2.3 Trying Out Jupyter on The Web\nBecause Jupyter notebooks are a bit fiddly to get started, there is an online test notebook set up by the Jupyter authors - Classic Jupyter Notebook. It can be a bit busy so may take a few reloads to get started.\n\n\n\n\n\n\nFor you to do\n\n\n\n* Go to the link above and start a classic Jupyter notebook. \n* Work through the `Notebook Basics` section.\n* Start a new workbook and play around mixing Python Code and Markdown.\n* Save as an html file when you are done"
   },
   {
-    "objectID": "02-r-markdown.html#roundup",
-    "href": "02-r-markdown.html#roundup",
-    "title": "1  R and RMarkdown",
-    "section": "1.4 Roundup",
-    "text": "1.4 Roundup\nRMarkdown documents are excellent tools for creating readable, attractive and dynamic reproducible literate programming documents."
-  },
-  {
     "objectID": "03-jupyter-notebooks.html#starting-jupyter",
     "href": "03-jupyter-notebooks.html#starting-jupyter",
     "title": "2  Python and Jupyter Notebooks",
     "section": "2.4 Starting Jupyter",
     "text": "2.4 Starting Jupyter\n\n2.4.1 macOS and Linux\nTo get Jupyter running on your machine, you need to have Python 3, and the jupyter and ipython packages installed. That is all listed in the set up of this course.\nOnce those are installed you can start a new notebook server by typing jupyter notebook at the terminal. Depending on the particulars of your local set up you may need to select an appropriate conda environment beforehand. A new server should start showing the filesystem in your web browser, use the buttons in the web page to start a new notebook.\n\n\n2.4.2 Windows\nThere should be a Start Menu item that will let you kick off a new Jupyter notebook server. Simply click on that.\n\n\n\n\n\n\nFor you to do\n\n\n\n* Start a new workbook and play around mixing Python Code and Markdown.\n* Pay attention to the block type options dropdown in the interface (under the `Widgets` menu), here is where you can tell the document whether you are writing some Markdown or entering Python. Use the `Run` button to run the code/render the Markdown.  \n* Save as an html file when you are done\n\n\n\n\n\n\n\n\nRoundup\n\n\n\nJupyter Notebooks are excellent tools for creating readable, attractive and dynamic reproducible literate programming documents."
+  },
+  {
+    "objectID": "appendix.html",
+    "href": "appendix.html",
+    "title": "Prerequisites",
+    "section": "",
+    "text": "The materials in this book assume that you already know something (but not necessarily a great deal) of the languages R and Python, so there won’t be any introduction to the languages themselves. The rest of this chapter will help you set up the software you need to practice with those tools."
+  },
+  {
+    "objectID": "appendix.html#installing-r",
+    "href": "appendix.html#installing-r",
+    "title": "Prerequisites",
+    "section": "Installing R",
+    "text": "Installing R\nFollow this link and install the right version for your operating system https://www.stats.bris.ac.uk/R/"
+  },
+  {
+    "objectID": "appendix.html#installing-rstudio",
+    "href": "appendix.html#installing-rstudio",
+    "title": "Prerequisites",
+    "section": "Installing RStudio",
+    "text": "Installing RStudio\nFollow this link and install the right version for your operating system https://www.rstudio.com/products/rstudio/download/"
+  },
+  {
+    "objectID": "appendix.html#installing-r-packages-in-rstudio",
+    "href": "appendix.html#installing-r-packages-in-rstudio",
+    "title": "Prerequisites",
+    "section": "Installing R packages in RStudio",
+    "text": "Installing R packages in RStudio\n\nStandard packages\nIn the RStudio console, type\ninstall.packages(c(\"rmarkdown\", \"knitr\"))"
+  },
+  {
+    "objectID": "appendix.html#installing-python-3-with-anaconda",
+    "href": "appendix.html#installing-python-3-with-anaconda",
+    "title": "Prerequisites",
+    "section": "Installing Python 3 with Anaconda",
+    "text": "Installing Python 3 with Anaconda\nFollow this link and install Python 3.x for your operating system. https://www.anaconda.com/distribution/\n\nNote for macOS users\nAccept all of the defaults during installation\nHere is a video tutorial https://www.youtube.com/watch?v=TcSAln46u9U\n\n\nNote for Windows users\nInstall Python 3 using all of the defaults for installation except make sure to check Add Anaconda to my PATH environment variable.\nHere is a video tutorial https://www.youtube.com/watch?v=xxQ0mzZ8UvA\n\n\nNote for Linux Users\nYou’ll need to be able to use the command-line to install with Anaconda. If you aren’t comfortable with this, ask for assistance from the local support team.\n\nOpen https://www.anaconda.com/download/#linux with your web browser.\nDownload the Python 3 installer for Linux.\nOpen a terminal window. 4.Type bash Anaconda3-and then press Tab. The name of the file you just downloaded should appear. If it does not, navigate to the folder where you downloaded the file, for example with: cd Downloads. Then, try again.\nPress enter. You will follow the text-only prompts. To move through the text, press the spacebar.\nType yes and press enter to approve the license.\nPress enter to approve the default location for the files.\nType yes and press enter to prepend Anaconda to your PATH (this makes the Anaconda distribution the default Python).\nClose the terminal window."
+  },
+  {
+    "objectID": "appendix.html#starting-a-jupyter-notebook",
+    "href": "appendix.html#starting-a-jupyter-notebook",
+    "title": "Prerequisites",
+    "section": "Starting a Jupyter Notebook",
+    "text": "Starting a Jupyter Notebook\n\nmacOS\n\nStart the Terminal application in Applications -> Utilities\nType jupyter notebook, it should start in your web browser\n\n\n\nWindows\n\nFrom the Start menu, search for and open Anaconda 3 or Jupyter Notebook. You should be able to start a notebook directly by clicking the Jupyter Notebook icon.\n\n\n\nLinux\n\nOpen the terminal application. It is usually in the task bar or dock\nType jupyter notebook, it should start in your web browser"
+  },
+  {
+    "objectID": "appendix.html#installing-python-packages-with-conda",
+    "href": "appendix.html#installing-python-packages-with-conda",
+    "title": "Prerequisites",
+    "section": "Installing Python Packages with conda",
+    "text": "Installing Python Packages with conda\nYou can use conda to install new Python packages using the Terminal by typing conda install <package_name>.\nYou can install the required packages with the following commands:\nconda install jupyter\nAccept all defaults when the system asks a question."
   }
 ]
