@@ -1,8 +1,0 @@
-book_filename: "literate_computing"
-delete_merged_file: true
-language:
-  ui:
-    chapter_name: "Topic "
-output_dir: "docs"
-clean: ["docs", "literate_computing.md"]
-rmd_files: ["index.Rmd", "01-motivation.Rmd", "02-r-markdown.Rmd","03-jupyter-notebooks.Rmd","04-references.Rmd"]

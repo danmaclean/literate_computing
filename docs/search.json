@@ -1,0 +1,107 @@
+[
+  {
+    "objectID": "index.html",
+    "href": "index.html",
+    "title": "Literate Computing",
+    "section": "",
+    "text": "Developing a data analysis is hard, it can involve many mis-steps and changes of mind from redoing of little bits here and there that weren’t quite right the first time, to introducing new ideas or removing whole sections that didn’t work out. This iterative process is completely in-line with all other aspects of research and means that we have a personal need to be able to record exactly what we’ve done with high accuracy, and high reproducibility. It is also our scientific responsibility and an aspect of scientific integrity that we are clear and open about the methods we use as they are key in the interpretations and understanding of the results that we get. In the jargon of the field we think of this as ‘keeping a proper lab book’, but when it comes to using a computer, what we need to record, when is not often clear nor is it sometimes easy to do so. As a result the methods sections of many reports, theses and papers report scientific computing in a vague and uninterpretable way, making statements like ‘tests were done in Excel’ or ‘GenStat was used to perform \\(t\\)-tests’, or ‘a custom R script was used’. These nebulous reports are useless for anyone trying to understand exactly what was done and reports using them are unreproducible. That they pass reviewers so often is a clear indication of the failure of reviewing of methods. In practice these sorts of write ups are no better and no more informative than announcing that statistical analyses were done with a magic spell.\nA major failing of computer graphical interfaces is that they do not make it easy for us to repeat actions, which is ironic as computers are excellent at repeating instructions very quickly. Scripts and programs are required to get the best reproducibility out of our computers, but scripts in R and Python (and any other computer language) are not easily read by people, even those with a great deal of experience in programming. Very quickly reproducible scripts become unusable lumps of code because users can’t tell what is in them and what they are supposed to do, a phenomenon that has it’s own acronym - WORN - write once, read never.\nLiterate programming is the skill of writing code that is readable and understandable, often without the need to read the actual code in any depth. This is a very useful day-to-day skill to have when working in science as multidisciplinary teams abound. It is also useful when switching from project to project as we can understand what we were doing in a new project and get going again quickly. Using literate programming also eases our duty to report clearly and openly what we did in our analysis as the task of writing the code and explaining what we did are accomplished simultaneously.\n\n\n\n\n\nArtwork by @AllisonHorst\n\n\n\n\nIn this course we’ll learn how to create a literate programming document in two popular data science languages, R and Python. The two systems share a common core and much of what you learn for one will be applicable to the other."
+  },
+  {
+    "objectID": "02-r-markdown.html",
+    "href": "02-r-markdown.html",
+    "title": "1  R and RMarkdown",
+    "section": "",
+    "text": "Questions:\n\n\nHow do I write a reproducible analysis document in R with RStudio?\n\n\nObjectives:\n\n\nLearn markdown basics\nMix markdown and R with Rmarkdown\n\n\nKeypoints:\n\n\nRMarkdown documents are excellent tools for creating readable, attractive and dynamic reproducible literate programming documents."
+  },
+  {
+    "objectID": "02-r-markdown.html#markdown",
+    "href": "02-r-markdown.html#markdown",
+    "title": "1  R and RMarkdown",
+    "section": "1.2 Markdown",
+    "text": "1.2 Markdown\nThe process of adding annotations, like corrections or notes and comments to a physical or digital document is sometimes called ’marking it up. In processing digital documents, a language that adds tags to text to format them is called a markup language. Web pages are all written in a markup language called HTML (hypertext markup language) and it puts tags around elements to format them. Here for example is the markup for making text bold.\nI am regular text. But <b>I am bold!</b>\nand when you put that test through a rendering program like a web browser, it shows up like this:\nI am regular text. But I am bold!\nAs you can see the bits in the <b></b> are formatted as per the tags surrounding them (the <b><\\b> tags mean bold). Markdown performs a similar job, it is a lightweight markup language (hence mark-down), that can do a lot of formatting, and unlike HTML still looks readable in raw text without rendering it. It is a simple base format and can easily be converted into many formats.\n\n1.2.1 Basic markdown tags\nHere is a selection of basic markdown tags.\n## This is a heading\n\nHere is some regular text, this is **bold**.\n\n### This is a different, lower level heading (Note the number of `#`)\n\n    1. I am a member in a list\n    2. I am another member in the list\n\nHere is an image tag\n\n![A Random Image](https://picsum.photos/200/300)\nWhen rendered, this is going to look like this\n\n\n\n\n\nMore markdown tags are available, hopefully these give you an idea of how markdown works. Here is a helpful ‘cheat-sheet’ with many more tags you can use, RStudio RMarkdown Cheat Sheet."
+  },
+  {
+    "objectID": "02-r-markdown.html#r-markdown",
+    "href": "02-r-markdown.html#r-markdown",
+    "title": "1  R and RMarkdown",
+    "section": "1.3 R Markdown",
+    "text": "1.3 R Markdown\nR Markdown is an extension of markdown with R mixed in. The markdown syntax is extended using special blocks that contain R code. When it comes to rendering time, the R is run and the results pushed into the rendered document. By mixing these together we get a tool which we can use to get a literate programmed document that can fulfil all our responsibilities.\n\n\n\n\n\nArtwork by @AllisonHorst\n\n\n\n\nThe R code block we mix in with our regular markdown is structured with ``` (backticks, not quotes) and {r}, in practice a block looks like this\n```{r}\nprint(\"Hello, World!\")\n```\nAny R code can go in the blocks, and the program remembers state between blocks so that stuff you do in earlier blocks is remembered in later ones.\n\n1.3.1 Using R Markdown in RStudio\nRStudio provides a lot of tools for creating RMarkdown documents easily. To get a basic template document you can use the menu’s File -> New File -> R Markdown. On doing this you see a dialogue box, usually you want to set the options as in the figure below (you can put your name and a title in the relevant boxes )\n\n\n\n\n\nWhen you do this you get a new draft document.\n\n\n\n\n\n\nFor you to do\n\n\n\nUsing RStudio, create a new RMarkdown document. Read it and compare it with what goes below.\n\n\n\n1.3.1.1 Header Information\nThe first bit of the draft document is a bit of YAML markup that captures some information about the document. You don’t need to change anything here if you don’t want to, though it can be useful to use the information at this link to set the date automatically Dates in RMarkdown\n---\ntitle: \"My Document\"\nauthor: \"Dan MacLean\"\ndate: \"20/04/2021\"\noutput: html_document\n---\n\n\n1.3.1.2 Setup Block\nThe next part is the automatically created set up block\n```{r setup, include=FALSE}\nknitr::opts_chunk$set(echo = TRUE)\n```\nThis is a standard R block with some options set. The first bit ````{r setup,} is the standard block start, but this one is named setup. You don’t need to name each block, but it can be helpful when bugs start to appear. The next bit include=FALSE is an option that tells the RMarkdown renderer not to include the code or it’s output in the final document, this is because this is just setup code that we don’t want messing up our nice output. Then we have the code that this block runs knitr::opts_chunk$set(echo = TRUE) which set up some formatting options. You can use this block for any bits of setup code that you don’t want in the rest of your document.\n\n\n1.3.1.3 Markdown and R blocks\nThe other blocks are the document’s standard code and text blocks. Read them then perform this task\n\n\n\n\n\n\nFor you to do\n\n\n\nUsing RStudio, render the document using the Knit button at the top of the editor pane.\nNote how the code and results, including plots are mixed in the resulting document.\nMake some text edits and change the plot titles, then re-knit the document.\n\n\n\n\n\n1.3.2 Conclusion\nThis all there really is to RMarkdown documents, they are a very easy to use tool for keeping your analyses readable and reproducible. Inspect the cheat sheet a little further for tips on what more you can do in RMarkdown, RStudio RMarkdown Cheat Sheet.\n\n\n\n\n\n\nRoundup\n\n\n\nRMarkdown documents are excellent tools for creating readable, attractive and dynamic reproducible literate programming documents."
+  },
+  {
+    "objectID": "03-jupyter-notebooks.html",
+    "href": "03-jupyter-notebooks.html",
+    "title": "2  Python and Jupyter Notebooks",
+    "section": "",
+    "text": "Questions\n\nHow do I write a reproducible analysis document in Python with Jupyter??\n\nObjectives\n\nMix markdown and Python with Rmarkdown\nRun an interactive analysis document\n\nKeypoints\n\nJupyter notebooks are excellent tools for creating readable, attractive and dynamic reproducible literate programming documents."
+  },
+  {
+    "objectID": "03-jupyter-notebooks.html#jupyter-notebooks",
+    "href": "03-jupyter-notebooks.html#jupyter-notebooks",
+    "title": "2  Python and Jupyter Notebooks",
+    "section": "2.2 Jupyter Notebooks",
+    "text": "2.2 Jupyter Notebooks\nA Jupyter Notebook is really quite similar to an RMarkdown document in that it mixes code and markdown in different blocks and allows the user to create a reproducible document. Jupyter varies from RMarkdown slightly in that it prioritises interactive work, instead of rendering a whole document, each block is run individually. Making the whold process a bit more step-by-step than in R Markdown."
+  },
+  {
+    "objectID": "03-jupyter-notebooks.html#trying-out-jupyter-on-the-web",
+    "href": "03-jupyter-notebooks.html#trying-out-jupyter-on-the-web",
+    "title": "2  Python and Jupyter Notebooks",
+    "section": "2.3 Trying Out Jupyter on The Web",
+    "text": "2.3 Trying Out Jupyter on The Web\nBecause Jupyter notebooks are a bit fiddly to get started, there is an online test notebook set up by the Jupyter authors - Classic Jupyter Notebook. It can be a bit busy so may take a few reloads to get started.\n\n\n\n\n\n\nFor you to do\n\n\n\n* Go to the link above and start a classic Jupyter notebook. \n* Work through the `Notebook Basics` section.\n* Start a new workbook and play around mixing Python Code and Markdown.\n* Save as an html file when you are done"
+  },
+  {
+    "objectID": "03-jupyter-notebooks.html#starting-jupyter",
+    "href": "03-jupyter-notebooks.html#starting-jupyter",
+    "title": "2  Python and Jupyter Notebooks",
+    "section": "2.4 Starting Jupyter",
+    "text": "2.4 Starting Jupyter\n\n2.4.1 macOS and Linux\nTo get Jupyter running on your machine, you need to have Python 3, and the jupyter and ipython packages installed. That is all listed in the set up of this course.\nOnce those are installed you can start a new notebook server by typing jupyter notebook at the terminal. Depending on the particulars of your local set up you may need to select an appropriate conda environment beforehand. A new server should start showing the filesystem in your web browser, use the buttons in the web page to start a new notebook.\n\n\n2.4.2 Windows\nThere should be a Start Menu item that will let you kick off a new Jupyter notebook server. Simply click on that.\n\n\n\n\n\n\nFor you to do\n\n\n\n* Start a new workbook and play around mixing Python Code and Markdown.\n* Pay attention to the block type options dropdown in the interface (under the `Widgets` menu), here is where you can tell the document whether you are writing some Markdown or entering Python. Use the `Run` button to run the code/render the Markdown.  \n* Save as an html file when you are done\n\n\n\n\n\n\n\n\nRoundup\n\n\n\nJupyter Notebooks are excellent tools for creating readable, attractive and dynamic reproducible literate programming documents."
+  },
+  {
+    "objectID": "appendix.html",
+    "href": "appendix.html",
+    "title": "Prerequisites",
+    "section": "",
+    "text": "The materials in this book assume that you already know something (but not necessarily a great deal) of the languages R and Python, so there won’t be any introduction to the languages themselves. The rest of this chapter will help you set up the software you need to practice with those tools."
+  },
+  {
+    "objectID": "appendix.html#installing-r",
+    "href": "appendix.html#installing-r",
+    "title": "Prerequisites",
+    "section": "Installing R",
+    "text": "Installing R\nFollow this link and install the right version for your operating system https://www.stats.bris.ac.uk/R/"
+  },
+  {
+    "objectID": "appendix.html#installing-rstudio",
+    "href": "appendix.html#installing-rstudio",
+    "title": "Prerequisites",
+    "section": "Installing RStudio",
+    "text": "Installing RStudio\nFollow this link and install the right version for your operating system https://www.rstudio.com/products/rstudio/download/"
+  },
+  {
+    "objectID": "appendix.html#installing-r-packages-in-rstudio",
+    "href": "appendix.html#installing-r-packages-in-rstudio",
+    "title": "Prerequisites",
+    "section": "Installing R packages in RStudio",
+    "text": "Installing R packages in RStudio\n\nStandard packages\nIn the RStudio console, type\ninstall.packages(c(\"rmarkdown\", \"knitr\"))"
+  },
+  {
+    "objectID": "appendix.html#installing-python-3-with-anaconda",
+    "href": "appendix.html#installing-python-3-with-anaconda",
+    "title": "Prerequisites",
+    "section": "Installing Python 3 with Anaconda",
+    "text": "Installing Python 3 with Anaconda\nFollow this link and install Python 3.x for your operating system. https://www.anaconda.com/distribution/\n\nNote for macOS users\nAccept all of the defaults during installation\nHere is a video tutorial https://www.youtube.com/watch?v=TcSAln46u9U\n\n\nNote for Windows users\nInstall Python 3 using all of the defaults for installation except make sure to check Add Anaconda to my PATH environment variable.\nHere is a video tutorial https://www.youtube.com/watch?v=xxQ0mzZ8UvA\n\n\nNote for Linux Users\nYou’ll need to be able to use the command-line to install with Anaconda. If you aren’t comfortable with this, ask for assistance from the local support team.\n\nOpen https://www.anaconda.com/download/#linux with your web browser.\nDownload the Python 3 installer for Linux.\nOpen a terminal window. 4.Type bash Anaconda3-and then press Tab. The name of the file you just downloaded should appear. If it does not, navigate to the folder where you downloaded the file, for example with: cd Downloads. Then, try again.\nPress enter. You will follow the text-only prompts. To move through the text, press the spacebar.\nType yes and press enter to approve the license.\nPress enter to approve the default location for the files.\nType yes and press enter to prepend Anaconda to your PATH (this makes the Anaconda distribution the default Python).\nClose the terminal window."
+  },
+  {
+    "objectID": "appendix.html#starting-a-jupyter-notebook",
+    "href": "appendix.html#starting-a-jupyter-notebook",
+    "title": "Prerequisites",
+    "section": "Starting a Jupyter Notebook",
+    "text": "Starting a Jupyter Notebook\n\nmacOS\n\nStart the Terminal application in Applications -> Utilities\nType jupyter notebook, it should start in your web browser\n\n\n\nWindows\n\nFrom the Start menu, search for and open Anaconda 3 or Jupyter Notebook. You should be able to start a notebook directly by clicking the Jupyter Notebook icon.\n\n\n\nLinux\n\nOpen the terminal application. It is usually in the task bar or dock\nType jupyter notebook, it should start in your web browser"
+  },
+  {
+    "objectID": "appendix.html#installing-python-packages-with-conda",
+    "href": "appendix.html#installing-python-packages-with-conda",
+    "title": "Prerequisites",
+    "section": "Installing Python Packages with conda",
+    "text": "Installing Python Packages with conda\nYou can use conda to install new Python packages using the Terminal by typing conda install <package_name>.\nYou can install the required packages with the following commands:\nconda install jupyter\nAccept all defaults when the system asks a question."
+  }
+]
