@@ -6,10 +6,8 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
-<meta name="author" content="Dan MacLean">
-<meta name="dcterms.date" content="2022-05-01">
 
-<title>Literate Computing</title>
+<title>Literate Computing - 2&nbsp; Python and Jupyter Notebooks</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -26,7 +24,8 @@ ul.task-list{list-style: none;}
 <script src="site_libs/quarto-search/autocomplete.umd.js"></script>
 <script src="site_libs/quarto-search/fuse.min.js"></script>
 <script src="site_libs/quarto-search/quarto-search.js"></script>
-<link href="./02-r-markdown.html" rel="next">
+<link href="./appendix.html" rel="next">
+<link href="./02-r-markdown.html" rel="prev">
 <script src="site_libs/quarto-html/quarto.js"></script>
 <script src="site_libs/quarto-html/popper.min.js"></script>
 <script src="site_libs/quarto-html/tippy.umd.min.js"></script>
@@ -57,7 +56,6 @@ ul.task-list{list-style: none;}
 }</script>
 <script async="" src="https://hypothes.is/embed.js"></script>
 
-  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
 
 </head>
 
@@ -67,7 +65,7 @@ ul.task-list{list-style: none;}
   <header id="quarto-header" class="headroom fixed-top">
   <nav class="quarto-secondary-nav" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
     <div class="container-fluid d-flex justify-content-between">
-      <h1 class="quarto-secondary-nav-title">Literate Computing</h1>
+      <h1 class="quarto-secondary-nav-title"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Python and Jupyter Notebooks</span></h1>
       <button type="button" class="quarto-btn-toggle btn" aria-label="Show secondary navigation">
         <i class="bi bi-chevron-right"></i>
       </button>
@@ -110,7 +108,7 @@ ul.task-list{list-style: none;}
     <ul class="list-unstyled mt-1">
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./index.html" class="sidebar-item-text sidebar-link active">Motivation</a>
+  <a href="./index.html" class="sidebar-item-text sidebar-link">Motivation</a>
   </div>
 </li>
         <li class="sidebar-item">
@@ -120,7 +118,7 @@ ul.task-list{list-style: none;}
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./03-jupyter-notebooks.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Python and Jupyter Notebooks</span></a>
+  <a href="./03-jupyter-notebooks.html" class="sidebar-item-text sidebar-link active"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Python and Jupyter Notebooks</span></a>
   </div>
 </li>
         <li class="sidebar-item sidebar-item-section">
@@ -133,7 +131,7 @@ ul.task-list{list-style: none;}
     <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">  
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./appendix.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">A</span>&nbsp; <span class="chapter-title">Prerequisites</span></a>
+  <a href="./appendix.html" class="sidebar-item-text sidebar-link">Prerequisites</a>
   </div>
 </li>
     </ul>
@@ -147,9 +145,13 @@ ul.task-list{list-style: none;}
     <h2 id="toc-title">Table of contents</h2>
    
   <ul>
-  <li><a href="#motivation" id="toc-motivation" class="nav-link active" data-scroll-target="#motivation">Motivation</a>
+  <li><a href="#about-this-chapter" id="toc-about-this-chapter" class="nav-link active" data-scroll-target="#about-this-chapter"> <span class="header-section-number">2.1</span> About this chapter</a></li>
+  <li><a href="#jupyter-notebooks" id="toc-jupyter-notebooks" class="nav-link" data-scroll-target="#jupyter-notebooks"> <span class="header-section-number">2.2</span> Jupyter Notebooks</a></li>
+  <li><a href="#trying-out-jupyter-on-the-web" id="toc-trying-out-jupyter-on-the-web" class="nav-link" data-scroll-target="#trying-out-jupyter-on-the-web"> <span class="header-section-number">2.3</span> Trying Out Jupyter on The Web</a></li>
+  <li><a href="#starting-jupyter" id="toc-starting-jupyter" class="nav-link" data-scroll-target="#starting-jupyter"> <span class="header-section-number">2.4</span> Starting Jupyter</a>
   <ul class="collapse">
-  <li><a href="#if-we-didnt-have-to-do-it-over-and-over-it-wouldnt-be-called-re-search." id="toc-if-we-didnt-have-to-do-it-over-and-over-it-wouldnt-be-called-re-search." class="nav-link" data-scroll-target="#if-we-didnt-have-to-do-it-over-and-over-it-wouldnt-be-called-re-search.">If we didn’t have to do it over and over, it wouldn’t be called <em>re</em>-search.</a></li>
+  <li><a href="#macos-and-linux" id="toc-macos-and-linux" class="nav-link" data-scroll-target="#macos-and-linux"> <span class="header-section-number">2.4.1</span> macOS and Linux</a></li>
+  <li><a href="#windows" id="toc-windows" class="nav-link" data-scroll-target="#windows"> <span class="header-section-number">2.4.2</span> Windows</a></li>
   </ul></li>
   </ul>
 </nav>
@@ -159,7 +161,7 @@ ul.task-list{list-style: none;}
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title d-none d-lg-block">Literate Computing</h1>
+<h1 class="title d-none d-lg-block"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Python and Jupyter Notebooks</span></h1>
 </div>
 
 
@@ -168,43 +170,93 @@ ul.task-list{list-style: none;}
 
 <div class="quarto-title-meta">
 
-    <div>
-    <div class="quarto-title-meta-heading">Author</div>
-    <div class="quarto-title-meta-contents">
-             <p>Dan MacLean </p>
-          </div>
-  </div>
     
-    <div>
-    <div class="quarto-title-meta-heading">Published</div>
-    <div class="quarto-title-meta-contents">
-      <p class="date">May 1, 2022</p>
-    </div>
-  </div>
     
   </div>
   
 
 </header>
 
-<section id="motivation" class="level1 unnumbered">
-<h1 class="unnumbered">Motivation</h1>
-<section id="if-we-didnt-have-to-do-it-over-and-over-it-wouldnt-be-called-re-search." class="level2">
-<h2 class="anchored" data-anchor-id="if-we-didnt-have-to-do-it-over-and-over-it-wouldnt-be-called-re-search.">If we didn’t have to do it over and over, it wouldn’t be called <em>re</em>-search.</h2>
-<p>Developing a data analysis is hard, it can involve many mis-steps and changes of mind from redoing of little bits here and there that weren’t quite right the first time, to introducing new ideas or removing whole sections that didn’t work out. This iterative process is completely in-line with all other aspects of research and means that we have a personal need to be able to record exactly what we’ve done with high accuracy, and high reproducibility. It is also our scientific responsibility and an aspect of scientific integrity that we are clear and open about the methods we use as they are key in the interpretations and understanding of the results that we get. In the jargon of the field we think of this as ‘keeping a proper lab book’, but when it comes to using a computer, what we need to record, when is not often clear nor is it sometimes easy to do so. As a result the methods sections of many reports, theses and papers report scientific computing in a vague and uninterpretable way, making statements like ‘tests were done in Excel’ or ‘GenStat was used to perform <span class="math inline">\(t\)</span>-tests’, or ‘a custom R script was used’. These nebulous reports are useless for anyone trying to understand exactly what was done and reports using them are unreproducible. That they pass reviewers so often is a clear indication of the failure of reviewing of methods. In practice these sorts of write ups are no better and no more informative than announcing that statistical analyses were done with a magic spell.</p>
-<p>A major failing of computer graphical interfaces is that they do not make it easy for us to repeat actions, which is ironic as computers are excellent at repeating instructions very quickly. Scripts and programs are required to get the best reproducibility out of our computers, but scripts in R and Python (and any other computer language) are not easily read by people, even those with a great deal of experience in programming. Very quickly reproducible scripts become unusable lumps of code because users can’t tell what is in them and what they are supposed to do, a phenomenon that has it’s own acronym - WORN - write once, read never.</p>
-<p>Literate programming is the skill of writing code that is readable and understandable, often without the need to read the actual code in any depth. This is a very useful day-to-day skill to have when working in science as multidisciplinary teams abound. It is also useful when switching from project to project as we can understand what we were doing in a new project and get going again quickly. Using literate programming also eases our duty to report clearly and openly what we did in our analysis as the task of writing the code and explaining what we did are accomplished simultaneously.</p>
-<div class="cell">
-<div class="cell-output-display">
-<div class="quarto-figure quarto-figure-center">
-<figure class="figure">
-<p><img src="fig/reproducibility_court.png" class="img-fluid figure-img" width="2339"></p>
-<p></p><figcaption aria-hidden="true" class="figure-caption">Artwork by <a href="https://github.com/allisonhorst">@AllisonHorst</a></figcaption><p></p>
-</figure>
+<section id="about-this-chapter" class="level2" data-number="2.1">
+<h2 data-number="2.1" class="anchored" data-anchor-id="about-this-chapter"><span class="header-section-number">2.1</span> About this chapter</h2>
+<ol type="1">
+<li>Questions
+<ul>
+<li>How do I write a reproducible analysis document in Python with Jupyter??</li>
+</ul></li>
+<li>Objectives
+<ul>
+<li>Mix markdown and Python with Rmarkdown</li>
+<li>Run an interactive analysis document</li>
+</ul></li>
+<li>Keypoints
+<ul>
+<li>Jupyter notebooks are excellent tools for creating readable, attractive and dynamic reproducible literate programming documents.</li>
+</ul></li>
+</ol>
+</section>
+<section id="jupyter-notebooks" class="level2" data-number="2.2">
+<h2 data-number="2.2" class="anchored" data-anchor-id="jupyter-notebooks"><span class="header-section-number">2.2</span> Jupyter Notebooks</h2>
+<p>A Jupyter Notebook is really quite similar to an RMarkdown document in that it mixes code and markdown in different blocks and allows the user to create a reproducible document. Jupyter varies from RMarkdown slightly in that it prioritises interactive work, instead of rendering a whole document, each block is run individually. Making the whold process a bit more step-by-step than in R Markdown.</p>
+</section>
+<section id="trying-out-jupyter-on-the-web" class="level2" data-number="2.3">
+<h2 data-number="2.3" class="anchored" data-anchor-id="trying-out-jupyter-on-the-web"><span class="header-section-number">2.3</span> Trying Out Jupyter on The Web</h2>
+<p>Because Jupyter notebooks are a bit fiddly to get started, there is an online test notebook set up by the Jupyter authors - <a href="https://jupyter.org/try">Classic Jupyter Notebook</a>. It can be a bit busy so may take a few reloads to get started.</p>
+<div class="callout-note callout callout-style-default callout-captioned">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-caption-container flex-fill">
+For you to do
 </div>
 </div>
+<div class="callout-body-container callout-body">
+<pre><code>* Go to the link above and start a classic Jupyter notebook. 
+* Work through the `Notebook Basics` section.
+* Start a new workbook and play around mixing Python Code and Markdown.
+* Save as an html file when you are done</code></pre>
 </div>
-<p>In this course we’ll learn how to create a literate programming document in two popular data science languages, R and Python. The two systems share a common core and much of what you learn for one will be applicable to the other.</p>
+</div>
+</section>
+<section id="starting-jupyter" class="level2" data-number="2.4">
+<h2 data-number="2.4" class="anchored" data-anchor-id="starting-jupyter"><span class="header-section-number">2.4</span> Starting Jupyter</h2>
+<section id="macos-and-linux" class="level3" data-number="2.4.1">
+<h3 data-number="2.4.1" class="anchored" data-anchor-id="macos-and-linux"><span class="header-section-number">2.4.1</span> macOS and Linux</h3>
+<p>To get Jupyter running on your machine, you need to have Python 3, and the <code>jupyter</code> and <code>ipython</code> packages installed. That is all listed in the set up of this course.</p>
+<p>Once those are installed you can start a new notebook server by typing <code>jupyter notebook</code> at the terminal. Depending on the particulars of your local set up you may need to select an appropriate conda environment beforehand. A new server should start showing the filesystem in your web browser, use the buttons in the web page to start a new notebook.</p>
+</section>
+<section id="windows" class="level3" data-number="2.4.2">
+<h3 data-number="2.4.2" class="anchored" data-anchor-id="windows"><span class="header-section-number">2.4.2</span> Windows</h3>
+<p>There should be a Start Menu item that will let you kick off a new Jupyter notebook server. Simply click on that.</p>
+<div class="callout-note callout callout-style-default callout-captioned">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-caption-container flex-fill">
+For you to do
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<pre><code>* Start a new workbook and play around mixing Python Code and Markdown.
+* Pay attention to the block type options dropdown in the interface (under the `Widgets` menu), here is where you can tell the document whether you are writing some Markdown or entering Python. Use the `Run` button to run the code/render the Markdown.  
+* Save as an html file when you are done</code></pre>
+</div>
+</div>
+<div class="callout-tip callout callout-style-default callout-captioned">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-caption-container flex-fill">
+Roundup
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Jupyter Notebooks are excellent tools for creating readable, attractive and dynamic reproducible literate programming documents.</p>
+</div>
+</div>
 
 
 </section>
@@ -292,10 +344,13 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 </script>
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
+      <a href="./02-r-markdown.html" class="pagination-link">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">R and RMarkdown</span></span>
+      </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="./02-r-markdown.html" class="pagination-link">
-        <span class="nav-page-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">R and RMarkdown</span></span> <i class="bi bi-arrow-right-short"></i>
+      <a href="./appendix.html" class="pagination-link">
+        <span class="nav-page-text">Prerequisites</span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>

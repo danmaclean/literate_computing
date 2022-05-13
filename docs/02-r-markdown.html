@@ -1,0 +1,430 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-0.9.387">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+
+<title>Literate Computing - 1&nbsp; R and RMarkdown</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+span.underline{text-decoration: underline;}
+div.column{display: inline-block; vertical-align: top; width: 50%;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+</style>
+
+<script src="site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="site_libs/quarto-nav/headroom.min.js"></script>
+<script src="site_libs/clipboard/clipboard.min.js"></script>
+<meta name="quarto:offset" content="./">
+<script src="site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="site_libs/quarto-search/fuse.min.js"></script>
+<script src="site_libs/quarto-search/quarto-search.js"></script>
+<link href="./03-jupyter-notebooks.html" rel="next">
+<link href="./index.html" rel="prev">
+<script src="site_libs/quarto-html/quarto.js"></script>
+<script src="site_libs/quarto-html/popper.min.js"></script>
+<script src="site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="site_libs/quarto-html/anchor.min.js"></script>
+<link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link id="quarto-text-highlighting-styles" href="site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet">
+<script src="site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="site_libs/bootstrap/bootstrap.min.css" rel="stylesheet">
+<script id="quarto-search-options" type="application/json">{
+  "location": "sidebar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "start",
+  "type": "textbox",
+  "limit": 20,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit"
+  }
+}</script>
+<script async="" src="https://hypothes.is/embed.js"></script>
+
+
+</head>
+
+<body class="nav-sidebar floating">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+  <nav class="quarto-secondary-nav" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+    <div class="container-fluid d-flex justify-content-between">
+      <h1 class="quarto-secondary-nav-title"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">R and RMarkdown</span></h1>
+      <button type="button" class="quarto-btn-toggle btn" aria-label="Show secondary navigation">
+        <i class="bi bi-chevron-right"></i>
+      </button>
+    </div>
+  </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article">
+<!-- sidebar -->
+  <nav id="quarto-sidebar" class="sidebar collapse sidebar-navigation floating overflow-auto">
+    <div class="pt-lg-2 mt-2 text-left sidebar-header">
+    <div class="sidebar-title mb-0 py-0">
+      <a href="./">Literate Computing</a> 
+        <div class="sidebar-tools-main">
+    <a href="./Literate-Computing.pdf" title="Download PDF" class="sidebar-tool px-1"><i class="bi bi-file-pdf"></i></a>
+    <a href="" title="Share" id="sidebar-tool-dropdown-0" class="sidebar-tool dropdown-toggle px-1" data-bs-toggle="dropdown" aria-expanded="false"><i class="bi bi-share"></i></a>
+    <ul class="dropdown-menu" aria-labelledby="sidebar-tool-dropdown-0">
+        <li>
+          <a class="dropdown-item sidebar-tools-main-item" href="https://twitter.com/intent/tweet?url=|url|">
+            <i class="bi bi-bi-twitter pe-1"></i>
+          Twitter
+          </a>
+        </li>
+        <li>
+          <a class="dropdown-item sidebar-tools-main-item" href="https://www.facebook.com/sharer/sharer.php?u=|url|">
+            <i class="bi bi-bi-facebook pe-1"></i>
+          Facebook
+          </a>
+        </li>
+    </ul>
+</div>
+    </div>
+      </div>
+      <div class="mt-2 flex-shrink-0 align-items-center">
+        <div class="sidebar-search">
+        <div id="quarto-search" class="" title="Search"></div>
+        </div>
+      </div>
+    <div class="sidebar-menu-container"> 
+    <ul class="list-unstyled mt-1">
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./index.html" class="sidebar-item-text sidebar-link">Motivation</a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./02-r-markdown.html" class="sidebar-item-text sidebar-link active"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">R and RMarkdown</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./03-jupyter-notebooks.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Python and Jupyter Notebooks</span></a>
+  </div>
+</li>
+        <li class="sidebar-item sidebar-item-section">
+    <div class="sidebar-item-container"> 
+        <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" aria-expanded="true">Appendices</a>
+      <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" aria-expanded="true">
+        <i class="bi bi-chevron-right ms-2"></i>
+      </a>
+    </div>
+    <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">  
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./appendix.html" class="sidebar-item-text sidebar-link">Prerequisites</a>
+  </div>
+</li>
+    </ul>
+  </li>
+    </ul>
+    </div>
+</nav>
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc">
+    <h2 id="toc-title">Table of contents</h2>
+   
+  <ul>
+  <li><a href="#about-this-chapter" id="toc-about-this-chapter" class="nav-link active" data-scroll-target="#about-this-chapter"> <span class="header-section-number">1.1</span> About this chapter</a></li>
+  <li><a href="#markdown" id="toc-markdown" class="nav-link" data-scroll-target="#markdown"> <span class="header-section-number">1.2</span> Markdown</a>
+  <ul class="collapse">
+  <li><a href="#basic-markdown-tags" id="toc-basic-markdown-tags" class="nav-link" data-scroll-target="#basic-markdown-tags"> <span class="header-section-number">1.2.1</span> Basic markdown tags</a></li>
+  </ul></li>
+  <li><a href="#r-markdown" id="toc-r-markdown" class="nav-link" data-scroll-target="#r-markdown"> <span class="header-section-number">1.3</span> R Markdown</a>
+  <ul class="collapse">
+  <li><a href="#using-r-markdown-in-rstudio" id="toc-using-r-markdown-in-rstudio" class="nav-link" data-scroll-target="#using-r-markdown-in-rstudio"> <span class="header-section-number">1.3.1</span> Using R Markdown in RStudio</a></li>
+  <li><a href="#conclusion" id="toc-conclusion" class="nav-link" data-scroll-target="#conclusion"> <span class="header-section-number">1.3.2</span> Conclusion</a></li>
+  </ul></li>
+  </ul>
+</nav>
+    </div>
+<!-- main -->
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<h1 class="title d-none d-lg-block"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">R and RMarkdown</span></h1>
+</div>
+
+
+
+
+
+<div class="quarto-title-meta">
+
+    
+    
+  </div>
+  
+
+</header>
+
+<section id="about-this-chapter" class="level2" data-number="1.1">
+<h2 data-number="1.1" class="anchored" data-anchor-id="about-this-chapter"><span class="header-section-number">1.1</span> About this chapter</h2>
+<ol type="1">
+<li>Questions:</li>
+</ol>
+<ul>
+<li>How do I write a reproducible analysis document in R with RStudio?</li>
+</ul>
+<ol start="2" type="1">
+<li>Objectives:</li>
+</ol>
+<ul>
+<li>Learn markdown basics</li>
+<li>Mix markdown and R with Rmarkdown</li>
+</ul>
+<ol start="3" type="1">
+<li>Keypoints:</li>
+</ol>
+<ul>
+<li>RMarkdown documents are excellent tools for creating readable, attractive and dynamic reproducible literate programming documents.</li>
+</ul>
+</section>
+<section id="markdown" class="level2" data-number="1.2">
+<h2 data-number="1.2" class="anchored" data-anchor-id="markdown"><span class="header-section-number">1.2</span> Markdown</h2>
+<p>The process of adding annotations, like corrections or notes and comments to a physical or digital document is sometimes called ’marking it up. In processing digital documents, a language that adds tags to text to format them is called a markup language. Web pages are all written in a markup language called HTML (hypertext markup language) and it puts tags around elements to format them. Here for example is the markup for making text bold.</p>
+<pre><code>I am regular text. But &lt;b&gt;I am bold!&lt;/b&gt;</code></pre>
+<p>and when you put that test through a rendering program like a web browser, it shows up like this:</p>
+<p>I am regular text. But <b>I am bold!</b></p>
+<p>As you can see the bits in the <code>&lt;b&gt;&lt;/b&gt;</code> are formatted as per the tags surrounding them (the <code>&lt;b&gt;&lt;\b&gt;</code> tags mean bold). Markdown performs a similar job, it is a lightweight markup language (hence mark-<em>down</em>), that can do a lot of formatting, and unlike HTML still looks readable in raw text without rendering it. It is a simple base format and can easily be converted into many formats.</p>
+<section id="basic-markdown-tags" class="level3" data-number="1.2.1">
+<h3 data-number="1.2.1" class="anchored" data-anchor-id="basic-markdown-tags"><span class="header-section-number">1.2.1</span> Basic markdown tags</h3>
+<p>Here is a selection of basic markdown tags.</p>
+<pre><code>## This is a heading
+
+Here is some regular text, this is **bold**.
+
+### This is a different, lower level heading (Note the number of `#`)
+
+    1. I am a member in a list
+    2. I am another member in the list
+
+Here is an image tag
+
+![A Random Image](https://picsum.photos/200/300)</code></pre>
+<p>When rendered, this is going to look like this</p>
+<div class="cell">
+<div class="cell-output-display">
+<p><img src="fig/simple_md.png" class="img-fluid" width="286"></p>
+</div>
+</div>
+<p>More markdown tags are available, hopefully these give you an idea of how markdown works. Here is a helpful ‘cheat-sheet’ with many more tags you can use, <a href="https://www.rstudio.com/wp-content/uploads/2015/02/rmarkdown-cheatsheet.pdf">RStudio RMarkdown Cheat Sheet</a>.</p>
+</section>
+</section>
+<section id="r-markdown" class="level2" data-number="1.3">
+<h2 data-number="1.3" class="anchored" data-anchor-id="r-markdown"><span class="header-section-number">1.3</span> R Markdown</h2>
+<p>R Markdown is an extension of markdown with R mixed in. The markdown syntax is extended using special blocks that contain R code. When it comes to rendering time, the R is run and the results pushed into the rendered document. By mixing these together we get a tool which we can use to get a literate programmed document that can fulfil all our responsibilities.</p>
+<div class="cell">
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="fig/rmarkdown_wizards.png" class="img-fluid figure-img" width="1988"></p>
+<p></p><figcaption aria-hidden="true" class="figure-caption">Artwork by <a href="https://github.com/allisonhorst">@AllisonHorst</a></figcaption><p></p>
+</figure>
+</div>
+</div>
+</div>
+<p>The R code block we mix in with our regular markdown is structured with <code>```</code> (backticks, not quotes) and <code>{r}</code>, in practice a block looks like this</p>
+<p><code>```{r}</code></p>
+<p><code>print("Hello, World!")</code></p>
+<p><code>```</code></p>
+<p>Any R code can go in the blocks, and the program remembers state between blocks so that stuff you do in earlier blocks is remembered in later ones.</p>
+<section id="using-r-markdown-in-rstudio" class="level3" data-number="1.3.1">
+<h3 data-number="1.3.1" class="anchored" data-anchor-id="using-r-markdown-in-rstudio"><span class="header-section-number">1.3.1</span> Using R Markdown in RStudio</h3>
+<p>RStudio provides a lot of tools for creating RMarkdown documents easily. To get a basic template document you can use the menu’s <code>File -&gt; New File -&gt; R Markdown</code>. On doing this you see a dialogue box, usually you want to set the options as in the figure below (you can put your name and a title in the relevant boxes )</p>
+<div class="cell">
+<div class="cell-output-display">
+<p><img src="fig/rmd_dialogue.png" class="img-fluid" width="362"></p>
+</div>
+</div>
+<p>When you do this you get a new draft document.</p>
+<div class="callout-note callout callout-style-default callout-captioned">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-caption-container flex-fill">
+For you to do
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Using RStudio, create a new RMarkdown document. Read it and compare it with what goes below.</p>
+</div>
+</div>
+<section id="header-information" class="level4" data-number="1.3.1.1">
+<h4 data-number="1.3.1.1" class="anchored" data-anchor-id="header-information"><span class="header-section-number">1.3.1.1</span> Header Information</h4>
+<p>The first bit of the draft document is a bit of YAML markup that captures some information about the document. You don’t need to change anything here if you don’t want to, though it can be useful to use the information at this link to set the date automatically <a href="https://bookdown.org/yihui/rmarkdown-cookbook/update-date.html">Dates in RMarkdown</a></p>
+<pre><code>---
+title: "My Document"
+author: "Dan MacLean"
+date: "20/04/2021"
+output: html_document
+---</code></pre>
+</section>
+<section id="setup-block" class="level4" data-number="1.3.1.2">
+<h4 data-number="1.3.1.2" class="anchored" data-anchor-id="setup-block"><span class="header-section-number">1.3.1.2</span> Setup Block</h4>
+<p>The next part is the automatically created set up block</p>
+<p><code>```{r setup, include=FALSE}</code></p>
+<p><code>knitr::opts_chunk$set(echo = TRUE)</code></p>
+<p><code>```</code></p>
+<p>This is a standard R block with some options set. The first bit `<code>```{r setup,}</code> is the standard block start, but this one is named <code>setup</code>. You don’t need to name each block, but it can be helpful when bugs start to appear. The next bit <code>include=FALSE</code> is an option that tells the RMarkdown renderer <em>not</em> to include the code or it’s output in the final document, this is because this is just setup code that we don’t want messing up our nice output. Then we have the code that this block runs <code>knitr::opts_chunk$set(echo = TRUE)</code> which set up some formatting options. You can use this block for any bits of setup code that you don’t want in the rest of your document.</p>
+</section>
+<section id="markdown-and-r-blocks" class="level4" data-number="1.3.1.3">
+<h4 data-number="1.3.1.3" class="anchored" data-anchor-id="markdown-and-r-blocks"><span class="header-section-number">1.3.1.3</span> Markdown and R blocks</h4>
+<p>The other blocks are the document’s standard code and text blocks. Read them then perform this task</p>
+<div class="callout-note callout callout-style-default callout-captioned">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-caption-container flex-fill">
+For you to do
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Using RStudio, render the document using the <code>Knit</code> button at the top of the editor pane.</p>
+<p>Note how the code and results, including plots are mixed in the resulting document.</p>
+<p>Make some text edits and change the plot titles, then re-knit the document.</p>
+</div>
+</div>
+</section>
+</section>
+<section id="conclusion" class="level3" data-number="1.3.2">
+<h3 data-number="1.3.2" class="anchored" data-anchor-id="conclusion"><span class="header-section-number">1.3.2</span> Conclusion</h3>
+<p>This all there really is to RMarkdown documents, they are a very easy to use tool for keeping your analyses readable and reproducible. Inspect the cheat sheet a little further for tips on what more you can do in RMarkdown, <a href="https://www.rstudio.com/wp-content/uploads/2015/02/rmarkdown-cheatsheet.pdf">RStudio RMarkdown Cheat Sheet</a>.</p>
+<div class="callout-tip callout callout-style-default callout-captioned">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-caption-container flex-fill">
+Roundup
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>RMarkdown documents are excellent tools for creating readable, attractive and dynamic reproducible literate programming documents.</p>
+</div>
+</div>
+
+
+</section>
+</section>
+
+</main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+window.document.addEventListener("DOMContentLoaded", function (event) {
+  const icon = "";
+  const anchorJS = new window.AnchorJS();
+  anchorJS.options = {
+    placement: 'right',
+    icon: icon
+  };
+  anchorJS.add('.anchored');
+  const clipboard = new window.ClipboardJS('.code-copy-button', {
+    target: function(trigger) {
+      return trigger.previousElementSibling;
+    }
+  });
+  clipboard.on('success', function(e) {
+    // button target
+    const button = e.trigger;
+    // don't keep focus
+    button.blur();
+    // flash "checked"
+    button.classList.add('code-copy-button-checked');
+    var currentTitle = button.getAttribute("title");
+    button.setAttribute("title", "Copied!");
+    setTimeout(function() {
+      button.setAttribute("title", currentTitle);
+      button.classList.remove('code-copy-button-checked');
+    }, 1000);
+    // clear code selection
+    e.clearSelection();
+  });
+  function tippyHover(el, contentFn) {
+    const config = {
+      allowHTML: true,
+      content: contentFn,
+      maxWidth: 500,
+      delay: 100,
+      arrow: false,
+      appendTo: function(el) {
+          return el.parentElement;
+      },
+      interactive: true,
+      interactiveBorder: 10,
+      theme: 'quarto',
+      placement: 'bottom-start'
+    };
+    window.tippy(el, config); 
+  }
+  const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+  for (var i=0; i<noterefs.length; i++) {
+    const ref = noterefs[i];
+    tippyHover(ref, function() {
+      let href = ref.getAttribute('href');
+      try { href = new URL(href).hash; } catch {}
+      const id = href.replace(/^#\/?/, "");
+      const note = window.document.getElementById(id);
+      return note.innerHTML;
+    });
+  }
+  var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+  for (var i=0; i<bibliorefs.length; i++) {
+    const ref = bibliorefs[i];
+    const cites = ref.parentNode.getAttribute('data-cites').split(' ');
+    tippyHover(ref, function() {
+      var popup = window.document.createElement('div');
+      cites.forEach(function(cite) {
+        var citeDiv = window.document.createElement('div');
+        citeDiv.classList.add('hanging-indent');
+        citeDiv.classList.add('csl-entry');
+        var biblioDiv = window.document.getElementById('ref-' + cite);
+        if (biblioDiv) {
+          citeDiv.innerHTML = biblioDiv.innerHTML;
+        }
+        popup.appendChild(citeDiv);
+      });
+      return popup.innerHTML;
+    });
+  }
+});
+</script>
+<nav class="page-navigation">
+  <div class="nav-page nav-page-previous">
+      <a href="./index.html" class="pagination-link">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text">Motivation</span>
+      </a>          
+  </div>
+  <div class="nav-page nav-page-next">
+      <a href="./03-jupyter-notebooks.html" class="pagination-link">
+        <span class="nav-page-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Python and Jupyter Notebooks</span></span> <i class="bi bi-arrow-right-short"></i>
+      </a>
+  </div>
+</nav>
+</div> <!-- /content -->
+
+
+
+</body></html>
